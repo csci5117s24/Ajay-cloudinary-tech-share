@@ -1,0 +1,10 @@
+{
+  "short_name": "Cloudinary Tech Share",
+  "name": "Team Ajay cloudinary tech share",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
