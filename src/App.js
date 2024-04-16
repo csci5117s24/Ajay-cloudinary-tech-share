@@ -8,9 +8,9 @@ import "./styles.css";
 export default function App() {
   const [publicId, setPublicId] = useState("");
   // Replace with your own cloud name
-  const [cloudName] = useState("awduwwad");
+  const [cloudName] = useState("hzxyensd5");
   // Replace with your own upload preset
-  const [uploadPreset] = useState("preset_name_here");
+  const [uploadPreset] = useState("aoh4fpwm");
 
   // Upload Widget Configuration
   // Remove the comments from the code below to add
