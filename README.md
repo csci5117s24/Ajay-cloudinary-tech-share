@@ -43,31 +43,31 @@ The content for your dashboard will appear on the right. The data we'll need is 
 For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to upload an image.
 
 First, we import all necessary components from the React library. These will be used to manage state and effects in our CloudinaryUploadWidget component.<br>
-![Import Statement](/public/cloudinary-import.PNG)
+![Import Statement](/public/widget-imgs/cloudinary-import.PNG)
 
 Then, we will create a context in order to manage our script loading state. This way we can pass data through the component without having to pass our props down manually.<br>
-![createContext](/public/cloudinary-context.PNG)
+![createContext](/public/widget-imgs/cloudinary-context.PNG)
 
 Now, we will start our CloudinaryUploadWidget function with two parameters, uwConfig and setPublicId.<br>
-![Widget Function](/public/cloudinary-config.PNG)
+![Widget Function](/public/widget-imgs/cloudinary-config.PNG)
 
 We will also use  state variables for tracking whether the Cloudinary script has been uploaded.<br>
-![Widget State](/public/cloudinary-state.PNG)
+![Widget State](/public/widget-imgs/cloudinary-state.PNG)
 
 Next, we will use useEffect in order to properly load the Cloudinary script based on the “loaded” state. Within this effect, we will look at the loaded state variable to see if the scripts have been loaded, if not, a script element is created and added to the document.<br>
-![Use Effect](/public/cloudinary-useEffect.PNG)
+![Use Effect](/public/widget-imgs/cloudinary-useEffect.PNG)
 
 Next, we will create an initializeCloudinaryWidget function to initialize the CloudinaryUploadWidget when the script has been successfully loaded. <br>
-![Script Check](/public/cloudinary-script.PNG)
+![Script Check](/public/widget-imgs/cloudinary-script.PNG)
 
 Once the script has been loaded, we use the command window.cloudinary.createUploadWidget, with our preset uwConfig. Whenever an image is successfully uploaded, publicId will be set and we will have access to the image information.<br>
-![Initialize Widget](/public/cloudinary-init.PNG)
+![Initialize Widget](/public/widget-imgs/cloudinary-init.PNG)
 
 Then, we will add an event listener to the widget to ensure the Cloudinary upload widget is properly opened on button click for asset uploads.<br>
-![Check Widget](/public/cloudinary-check.PNG)
+![Check Widget](/public/widget-imgs/cloudinary-check.PNG)
 
 Lastly, we return the button upload_widget, which will initialize the Cloudinary Widget once pressed, and handle publicID once the assets are properly uploaded.<br>
-![Widget Button](/public/cloudinary-button.PNG)
+![Widget Button](/public/widget-imgs/cloudinary-button.PNG)
 
 At this point, we now have a React component, CloudinaryUploadWidget to create and manage uploaded assets to a user's Cloudinary account.
 
