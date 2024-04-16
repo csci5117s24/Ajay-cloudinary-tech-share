@@ -57,7 +57,7 @@ We will also use  state variables for tracking whether the Cloudinary script has
 Next, we will use useEffect in order to properly load the Cloudinary script based on the “loaded” state. Within this effect, we will look at the loaded state variable to see if the scripts have been loaded, if not, a script element is created and added to the document.<br>
 ![Use Effect](/public/widget-imgs/cloudinary-useEffect.PNG)
 
-Next, we will create an initializeCloudinaryWidget function to initialize the CloudinaryUploadWidget when the script has been successfully loaded. <br>
+Next, we will create an initializeCloudinaryWidget function to initialize the CloudinaryUploadWidget when the script has been successfully loaded.<br>
 ![Script Check](/public/widget-imgs/cloudinary-script.PNG)
 
 Once the script has been loaded, we use the command window.cloudinary.createUploadWidget, with our preset uwConfig. Whenever an image is successfully uploaded, publicId will be set and we will have access to the image information.<br>
@@ -72,28 +72,33 @@ Lastly, we return the button upload_widget, which will initialize the Cloudinary
 At this point, we now have a React component, CloudinaryUploadWidget to create and manage uploaded assets to a user's Cloudinary account.
 
 ## Using the Upload Widget (App.js)
-Now that we have the CloudinaryUploadWidget, we will show how to integrate this widget into a basic app, and display the image on our site. <br>
+Now that we have the CloudinaryUploadWidget, we will show how to integrate this widget into a basic app, and display the image on our site.<br>
 
 To start off, we want to import the CloudinaryUploadWidget and other components from the Cloudinary library to interact with Cloudinary.<br>
 
-AdvancedImage, responsive, and placeholder are imported from the @cloudinary/react package and are used to create actual Cloudinary URLs and render images. <br>
-img
+AdvancedImage, responsive, and placeholder are imported from the @cloudinary/react package and are used to create actual Cloudinary URLs and render images.<br>
+![Imports](/public/cloudinary-app-imgs/cloudinary_imports1.png)
 
-Now, we will start off our function App, and set our cloudName, and uploadPresets. We will use our data from the “Account Setup” section of this tutorial and fill it in here accordingly. <br>
+Now, we will start off our function App, and set our cloudName, and uploadPresets. We will use our data from the “Account Setup” section of this tutorial and fill it in here accordingly.<br>
 
-“publicID” will be the ID of the uploaded asset, “cloudName” will be your own Cloudinary cloud name, and “uploadPreset” will include the upload preset for uploading images (see earlier section). <br>
-img
-Next, we will initialize our uwConfig (upload widget config) state variable with our cloudName, and uploadPreset. This is a basic example, and other examples for widget configurations can be found [here](https://cloudinary.com/documentation/upload_widget_reference). <br>
-img
-Now, we will create Cloudinary instance cld with our “cloudName” state variable. This constructor was imported from the @cloudinary/url-gen package. <br>
-img
-We will create a Cloudinary image object “myImage”, which will allow us to generate the Cloudinary image with the publicId to properly identify the image in our Cloudinary database. <br>
-img
-Lastly, we will return the basic page, which will render the CloudinaryUploadWidget component from before with our uwConfig and setPublicId props/parameters. <br>
+“publicID” will be the ID of the uploaded asset, “cloudName” will be your own Cloudinary cloud name, and “uploadPreset” will include the upload preset for uploading images (see earlier section).<br>
+![Public Id](/public/cloudinary-app-imgs/cloudinary_app2.png)
 
-This AdvancedImage component will be used to show the uploaded image. It’ll use the configurations that we defined before in myImage. Optionally, we also can add plugins “responsive()” and “placeholder()” for resizing and placeholder images. <br>
-img
-Good job, we are now complete and have a React app that we can run! <br>
+Next, we will initialize our uwConfig (upload widget config) state variable with our cloudName, and uploadPreset. This is a basic example, and other examples for widget configurations can be found [here](https://cloudinary.com/documentation/upload_widget_reference).<br>
+![UW Config](/public/cloudinary-app-imgs/cloudinary_config3.png)
+
+Now, we will create Cloudinary instance cld with our “cloudName” state variable. This constructor was imported from the @cloudinary/url-gen package.<br>
+![CLD Instance](/public/cloudinary-app-imgs/cloudinary_app4.png)
+
+We will create a Cloudinary image object “myImage”, which will allow us to generate the Cloudinary image with the publicId to properly identify the image in our Cloudinary database.<br>
+![CLD Image](/public/cloudinary-app-imgs/cloudinary_app5.png)
+
+Lastly, we will return the basic page, which will render the CloudinaryUploadWidget component from before with our uwConfig and setPublicId props/parameters.<br>
+
+This AdvancedImage component will be used to show the uploaded image. It’ll use the configurations that we defined before in myImage. Optionally, we also can add plugins “responsive()” and “placeholder()” for resizing and placeholder images.<br>
+![Advanced Image](/public/cloudinary-app-imgs/cloudinary_app6.png)
+
+Good job, we are now complete and have a React app that we can run!<br>
 
 Run the application with “npm run start”. <br>
 img
