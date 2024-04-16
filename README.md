@@ -100,11 +100,12 @@ This AdvancedImage component will be used to show the uploaded image. It’ll us
 
 Good job, we are now complete and have a React app that we can run!<br>
 
-Run the application with “npm run start”. <br>
-img
-Click the upload button with our shiny new widget, choose any image, and click done. <br>
-img
-Now, you will see the properly uploaded image, which will be stored in your Cloudinary account. This image will have a link accessible to the public. <br>
-img
+Run the application with “npm run start”.<br>
+
+Click the upload button with our shiny new widget, choose any image, and click done.<br>
+![Upload Button](/public/cloudinary-app-imgs/cloudinary_app7.png)
+
+Now, you will see the properly uploaded image, which will be stored in your Cloudinary account. This image will have a link accessible to the public.<br>
+![Uploaded Image](/public/cloudinary-app-imgs/cloudinary_app8.png)
 
 
