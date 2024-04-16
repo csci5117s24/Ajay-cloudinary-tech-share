@@ -102,6 +102,7 @@ Good job, we are now complete and have a React app that we can run!<br>
 
 Run the application with “npm run start”.<br>
 ![Upload Button](/public/cloudinary-app-imgs/cloudinary_app7.png)
+
 Click the upload button with our shiny new widget, choose any image, and click done.<br>
 ![Uploading](/public/cloudinary-app-imgs/cloudinary_app9.png)
 
