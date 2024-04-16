@@ -1,5 +1,5 @@
 # Cloudinary Tech Demo
-![Cloudinary_Logo](/public/cloudinary-logo.png)
+![Cloudinary_Logo](/public/widget-imgs/cloudinary-logo.png)
 
 ## Introduction
 ### Why Cloud Storage?
