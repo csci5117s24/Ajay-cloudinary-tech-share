@@ -77,22 +77,22 @@ Now that we have the CloudinaryUploadWidget, we will show how to integrate this 
 To start off, we want to import the CloudinaryUploadWidget and other components from the Cloudinary library to interact with Cloudinary.<br>
 
 AdvancedImage, responsive, and placeholder are imported from the @cloudinary/react package and are used to create actual Cloudinary URLs and render images. <br>
-img
+![Imports](/public/cloudinary-app-imgs/cloudinary_imports1.png)
 
 Now, we will start off our function App, and set our cloudName, and uploadPresets. We will use our data from the “Account Setup” section of this tutorial and fill it in here accordingly. <br>
 
 “publicID” will be the ID of the uploaded asset, “cloudName” will be your own Cloudinary cloud name, and “uploadPreset” will include the upload preset for uploading images (see earlier section). <br>
-img
+![Public Id](/public/cloudinary-app-imgs/cloudinary_app2.png)
 Next, we will initialize our uwConfig (upload widget config) state variable with our cloudName, and uploadPreset. This is a basic example, and other examples for widget configurations can be found [here](https://cloudinary.com/documentation/upload_widget_reference). <br>
-img
+![UW Config](/public/cloudinary-app-imgs/cloudinary_config3.png)
 Now, we will create Cloudinary instance cld with our “cloudName” state variable. This constructor was imported from the @cloudinary/url-gen package. <br>
-img
+![CLD Instance](/public/cloudinary-app-imgs/cloudinary_app4.png)
 We will create a Cloudinary image object “myImage”, which will allow us to generate the Cloudinary image with the publicId to properly identify the image in our Cloudinary database. <br>
-img
+![CLD Image](/public/cloudinary-app-imgs/cloudinary_app5.png)
 Lastly, we will return the basic page, which will render the CloudinaryUploadWidget component from before with our uwConfig and setPublicId props/parameters. <br>
 
 This AdvancedImage component will be used to show the uploaded image. It’ll use the configurations that we defined before in myImage. Optionally, we also can add plugins “responsive()” and “placeholder()” for resizing and placeholder images. <br>
-img
+![Advanced Image](/public/cloudinary-app-imgs/cloudinary_app6.png)
 Good job, we are now complete and have a React app that we can run! <br>
 
 Run the application with “npm run start”. <br>
