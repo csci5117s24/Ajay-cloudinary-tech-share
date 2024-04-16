@@ -59,6 +59,5 @@ function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
     </CloudinaryScriptContext.Provider>
   );
 }
-
-export default CloudinaryUploadWidget;
 export { CloudinaryScriptContext };
+export default CloudinaryUploadWidget;
