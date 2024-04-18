@@ -62,6 +62,7 @@ Next, we will use useEffect in order to properly load the Cloudinary script base
 ```
 function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
     const [loaded, setLoaded] = useState(false);
+
     useEffect(() => {
         // Check if the script is already loaded
         if (!loaded) {
@@ -94,13 +95,62 @@ function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
 ```
 
 Once the script has been loaded, we use the command window.cloudinary.createUploadWidget, with our preset uwConfig. Whenever an image is successfully uploaded, publicId will be set and we will have access to the image information.<br>
-![Initialize Widget](/public/widget-imgs/cloudinary-init.PNG)
+```
+  const initializeCloudinaryWidget = () => {
+    if (loaded) {
+      var myWidget = window.cloudinary.createUploadWidget(
+        uwConfig,
+        (error, result) => {
+          if (!error && result && result.event === "success") {
+            console.log("Done! Here is the image info: ", result.info);
+            setPublicId(result.info.public_id);
+          }
+        }
+      );
+```
 
 Then, we will add an event listener to the widget to ensure the Cloudinary upload widget is properly opened on button click for asset uploads.<br>
-![Check Widget](/public/widget-imgs/cloudinary-check.PNG)
+```
+  const initializeCloudinaryWidget = () => {
+    if (loaded) {
+      var myWidget = window.cloudinary.createUploadWidget(
+        uwConfig,
+        (error, result) => {
+          if (!error && result && result.event === "success") {
+            console.log("Done! Here is the image info: ", result.info);
+            setPublicId(result.info.public_id);
+          }
+        }
+      );
+
+      document.getElementById("upload_widget").addEventListener(
+        "click",
+        function () {
+          myWidget.open();
+        },
+        false
+      );
+    }
+  };
+```
 
 Lastly, we return the button upload_widget, which will initialize the Cloudinary Widget once pressed, and handle publicID once the assets are properly uploaded.<br>
-![Widget Button](/public/widget-imgs/cloudinary-button.PNG)
+```
+  return (
+    <CloudinaryScriptContext.Provider value={{ loaded }}>
+      <button
+        id="upload_widget"
+        className="cloudinary-button"
+        onClick={initializeCloudinaryWidget}
+      >
+        Upload
+      </button>
+    </CloudinaryScriptContext.Provider>
+  );
+}
+export { CloudinaryScriptContext };
+export default CloudinaryUploadWidget;
+```
 
 At this point, we now have a React component, CloudinaryUploadWidget to create and manage uploaded assets to a user's Cloudinary account.
 
@@ -110,26 +160,77 @@ Now that we have the CloudinaryUploadWidget, we will show how to integrate this 
 To start off, we want to import the CloudinaryUploadWidget and other components from the Cloudinary library to interact with Cloudinary.<br>
 
 AdvancedImage, responsive, and placeholder are imported from the @cloudinary/react package and are used to create actual Cloudinary URLs and render images.<br>
-![Imports](/public/cloudinary-app-imgs/cloudinary_imports1.png)
+```
+import { useState } from "react";
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
+```
 
 Now, we will start off our function App, and set our cloudName, and uploadPresets. We will use our data from the “Account Setup” section of this tutorial and fill it in here accordingly.<br>
 
 “publicID” will be the ID of the uploaded asset, “cloudName” will be your own Cloudinary cloud name, and “uploadPreset” will include the upload preset for uploading images (see earlier section).<br>
-![Public Id](/public/cloudinary-app-imgs/cloudinary_app2.png)
+```
+export default function App() {
+  const [publicId, setPublicId] = useState("");
+  // Replace with your own cloud name
+  const [cloudName] = useState("cloud_name_here");
+  // Replace with your own upload preset
+  const [uploadPreset] = useState("prest_name_here");
+```
 
 Next, we will initialize our uwConfig (upload widget config) state variable with our cloudName, and uploadPreset. This is a basic example, and other examples for widget configurations can be found [here](https://cloudinary.com/documentation/upload_widget_reference).<br>
-![UW Config](/public/cloudinary-app-imgs/cloudinary_config3.png)
+```
+  const [uwConfig] = useState({
+    cloudName,
+    uploadPreset
+    // cropping: true, //add a cropping step
+    // showAdvancedOptions: true,  //add advanced options (public_id and tag)
+    // sources: [ "local", "url"], // restrict the upload sources to URL and local files
+    // multiple: false,  //restrict upload to a single file
+    // folder: "user_images", //upload files to the specified folder
+    // tags: ["users", "profile"], //add the given tags to the uploaded files
+    // context: {alt: "user_uploaded"}, //add the given context data to the uploaded files
+    // clientAllowedFormats: ["images"], //restrict uploading to image files only
+    // maxImageFileSize: 2000000,  //restrict file size to less than 2MB
+    // maxImageWidth: 2000, //Scales the image down to a width of 2000 pixels before uploading
+    // theme: "purple", //change to a purple theme
+  });
+```
 
 Now, we will create Cloudinary instance cld with our “cloudName” state variable. This constructor was imported from the @cloudinary/url-gen package.<br>
-![CLD Instance](/public/cloudinary-app-imgs/cloudinary_app4.png)
+```
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName
+    }
+  });
+```
 
 We will create a Cloudinary image object “myImage”, which will allow us to generate the Cloudinary image with the publicId to properly identify the image in our Cloudinary database.<br>
-![CLD Image](/public/cloudinary-app-imgs/cloudinary_app5.png)
+```
+  const myImage = cld.image(publicId);
+```
 
 Lastly, we will return the basic page, which will render the CloudinaryUploadWidget component from before with our uwConfig and setPublicId props/parameters.<br>
 
 This AdvancedImage component will be used to show the uploaded image. It’ll use the configurations that we defined before in myImage. Optionally, we also can add plugins “responsive()” and “placeholder()” for resizing and placeholder images.<br>
-![Advanced Image](/public/cloudinary-app-imgs/cloudinary_app6.png)
+```
+  return (
+    <div className="App">
+      <h3>Cloudinary Upload Widget Example</h3>
+      <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
+      <div style={{ width: "800px" }}>
+        <AdvancedImage
+          style={{ maxWidth: "100%" }}
+          cldImg={myImage}
+          plugins={[responsive(), placeholder()]}
+        />
+      </div>
+    </div>
+  );
+}
+```
 
 Good job, we are now complete and have a React app that we can run!<br>
 
