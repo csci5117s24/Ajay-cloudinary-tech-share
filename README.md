@@ -60,14 +60,19 @@ function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
 
 Next, we will use useEffect in order to properly load the Cloudinary script based on the “loaded” state. Within this effect, we will look at the loaded state variable to see if the scripts have been loaded, if not, a script element is created and added to the document.<br>
 ```
-useEffect(() => {
-    // Check if the script is already loaded
-    if (!loaded) {
-        const uwScript = document.getElementById("uw");
+function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+        // Check if the script is already loaded
+        if (!loaded) {
+            const uwScript = document.getElementById("uw");
 ```
 
 Next, we will create an initializeCloudinaryWidget function to initialize the CloudinaryUploadWidget when the script has been successfully loaded.<br>
 ```
+function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     // Check if the script is already loaded
     if (!loaded) {
