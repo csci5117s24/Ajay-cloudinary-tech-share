@@ -43,20 +43,28 @@ The content for your dashboard will appear on the right. The data we'll need is 
 For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to be able to upload an image.
 
 First, we import all necessary components from the React library. These will be used to manage state and effects in our CloudinaryUploadWidget component.<br>
-```import { createContext, useEffect, useState } from "react";```
+```
+import { createContext, useEffect, useState } from "react";
+```
 
 Then, we will create a context in order to manage our script loading state. This way we can pass data through the component without having to pass our props down manually.<br>
-```const CloudinaryScriptContext = createContext();```
+```
+const CloudinaryScriptContext = createContext();
+```
 
 Now, we will start our CloudinaryUploadWidget function with two parameters, uwConfig and setPublicId. We will also use  state variables for tracking whether the Cloudinary script has been uploaded.<br>
-```function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
-  const [loaded, setLoaded] = useState(false);```
+```
+function CloudinaryUploadWidget({ uwConfig, setPublicId }) {
+const [loaded, setLoaded] = useState(false);
+```
 
 Next, we will use useEffect in order to properly load the Cloudinary script based on the “loaded” state. Within this effect, we will look at the loaded state variable to see if the scripts have been loaded, if not, a script element is created and added to the document.<br>
-```  useEffect(() => {
+```
+useEffect(() => {
     // Check if the script is already loaded
     if (!loaded) {
-      const uwScript = document.getElementById("uw");```
+        const uwScript = document.getElementById("uw");
+```
 
 Next, we will create an initializeCloudinaryWidget function to initialize the CloudinaryUploadWidget when the script has been successfully loaded.<br>
 ![Script Check](/public/widget-imgs/cloudinary-script.PNG)
