@@ -43,7 +43,7 @@ The content for your dashboard will appear on the right. The data we'll need is 
 For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to be able to upload an image.
 
 First, we import all necessary components from the React library. These will be used to manage state and effects in our CloudinaryUploadWidget component.<br>
-'''import { createContext, useEffect, useState } from "react";'''
+```import { createContext, useEffect, useState } from "react";```
 ![Import Statement](/public/widget-imgs/cloudinary-import.PNG)
 
 Then, we will create a context in order to manage our script loading state. This way we can pass data through the component without having to pass our props down manually.<br>
