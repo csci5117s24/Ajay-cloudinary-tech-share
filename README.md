@@ -8,9 +8,9 @@ Many companies have been switching to this form of data storage due to its scala
 ### Why Cloudinary?
 For Project 1, we felt that managing image storage and retrieval within our own database was quite tedious. As a result, we wanted to find a solution that would minimize our manual workload. 
 
-Cloudinary offers a [free "Programmable Media" plan](https://cloudinary.com/pricing) that offers many useful features. With this plan, users are alloted 25 credits each month for their storage. The credit breakdown is further elaborated on [here](https://cloudinary.com/documentation/developer_onboarding_faq_credits). Specifically for images, this essentially provides 25GB of image storage each month. It's important to note that the free plan does have [additional limitations](https://cloudinary.com/pricing/compare-plans), specifically on the file size and number of requests, but we found that these limitations are reasonable for a project of our scale.
+Cloudinary offers a [free "Programmable Media" plan](https://cloudinary.com/pricing) that has many useful features. With this plan, users are alloted 25 credits each month for their storage. The credit breakdown is further elaborated on [here](https://cloudinary.com/documentation/developer_onboarding_faq_credits). Specifically for images, this essentially provides 25GB of image storage each month. It's important to note that the free plan does have [additional limitations](https://cloudinary.com/pricing/compare-plans), specifically on the file size and number of requests, but we found that these limitations are reasonable for a project of our scale.
 
-The features of Cloudinary that stand out to us is that they provide developers with a widget that allows users to upload images from a variety of platforms, processes the file, and returns a link to the image for the developers to store. This image can now be referenced through a URL.
+The features of Cloudinary that stand out to us are that they provide developers with a widget that allows users to upload images from a variety of platforms, processes the file, and returns a link to the image for the developers to store. This image can now be referenced through a URL.
 
 ## Account Setup
 ### Create an Account
@@ -40,9 +40,10 @@ The content for your dashboard will appear on the right. The data we'll need is 
  **To install run this command in root directory: npm i @cloudinary/url-gen @cloudinary/react** 
 
 ## Cloudinary Upload Widget
-For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to upload an image.
+For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to be able to upload an image.
 
 First, we import all necessary components from the React library. These will be used to manage state and effects in our CloudinaryUploadWidget component.<br>
+'''import { createContext, useEffect, useState } from "react";'''
 ![Import Statement](/public/widget-imgs/cloudinary-import.PNG)
 
 Then, we will create a context in order to manage our script loading state. This way we can pass data through the component without having to pass our props down manually.<br>
