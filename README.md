@@ -243,4 +243,10 @@ Click the upload button with our shiny new widget, choose any image, and click d
 Now, you will see the properly uploaded image, which will be stored in your Cloudinary account. This image will have a link accessible to the public.<br>
 ![Uploaded Image](/public/cloudinary-app-imgs/cloudinary_app8.png)
 
+## Conclusion
+You now know how to upload and store an image with Cloudinary. With its large capacities and easy implementation, this is a handy tool for developers of all kinds. It doesn't stop there, though -- dive deeper into the uses of Cloudinary with its 
+    [Video API](https://cloudinary.com/video_api), 
+    [Workflow Management](https://home.mediaflows.cloudinary.com/?utm_source=website&utm_medium=platform-nagivation), 
+    [Digital Asset Management](https://cloudinary.com/products/digital_asset_management), and more !
 
+We hope our guide helped you navigate this platform and we can't wait to see what you do with Cloudinary !
