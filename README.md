@@ -38,8 +38,10 @@ The content for your dashboard will appear on the right. The data we'll need is 
 
 ## Cloudinary Upload Widget
 ### Install Cloudinary Dependencies
-To install the necessary dependencies, run this command in root directory: 
-```npm i @cloudinary/url-gen @cloudinary/react```
+To install the necessary dependencies, run this command in your terminal from the root directory: 
+```
+npm i @cloudinary/url-gen @cloudinary/react
+```
 
 ### Creating the Component
 For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to be able to upload an image.
