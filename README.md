@@ -257,3 +257,7 @@ You now know how to upload and store an image with Cloudinary. With its large ca
     [Digital Asset Management](https://cloudinary.com/products/digital_asset_management), and more !
 
 We hope our guide helped you navigate this platform and we can't wait to see what you do with Cloudinary !
+
+
+## Sources
+[Widget](https://cloudinary.com/documentation/upload_widget)
