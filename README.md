@@ -24,22 +24,24 @@ Once you're in the "Programmable Media" tab, select your "Dashboard"
 ![Signup](/public/account-setup-imgs/dashboard.png)
 
 ### Getting Your "Product Environment Credentials"
-The content for your dashboard will appear on the right. The data we'll need is found under the "Product Environment Credentials" !block-- specifically the "API key", "API secret", and "API environment variable" to connect to our Cloudinary database.
+The content for your dashboard will appear on the right. The data we'll need is found under the "Product Environment Credentials" block-- specifically the "API key", "API secret", and "API environment variable" to connect to our Cloudinary database
 ![Signup](/public/account-setup-imgs/env.png)
 
 | Keys  | Values |
 | ------------- | ------------- |
-| Cloud name  | This is the name of our product environment. It’ll be used in order to create the publicly accessible URL for uploaded media.|
-| API key  | This is used with API secret in order to communicate with the Cloudinary API. |
-| API secret | This is used with the API key in order to communicate with Cloudinary API. | |
+| Cloud name  | This is the name of our product environment. It’ll be used in order to create the publicly accessible URL for uploaded media|
+| API key  | This is used with API secret in order to communicate with the Cloudinary API |
+| API secret | This is used with the API key in order to communicate with Cloudinary API | |
 
 **Remember to keep the API secret safe as other users could potentially alter or access your database otherwise!**
 
 
-# Ensure installation of cloudinary: 
- **To install run this command in root directory: npm i @cloudinary/url-gen @cloudinary/react** 
-
 ## Cloudinary Upload Widget
+### Install Cloudinary Dependencies
+To install the necessary dependencies, run this command in root directory: 
+```npm i @cloudinary/url-gen @cloudinary/react```
+
+### Creating the Component
 For simplicity and best code-reuse, we will make a CloudinaryUploadWidget component called CloudinaryUploadWidget.jsx. We will be able to use this widget throughout our application whenever we would like users to be able to upload an image.
 
 First, we import all necessary components from the React library. These will be used to manage state and effects in our CloudinaryUploadWidget component.<br>
@@ -154,7 +156,8 @@ export default CloudinaryUploadWidget;
 
 At this point, we now have a React component, CloudinaryUploadWidget to create and manage uploaded assets to a user's Cloudinary account.
 
-## Using the Upload Widget (App.js)
+
+### Using the Upload Widget (in our App.js)
 Now that we have the CloudinaryUploadWidget, we will show how to integrate this widget into a basic app, and display the image on our site.<br>
 
 To start off, we want to import the CloudinaryUploadWidget and other components from the Cloudinary library to interact with Cloudinary.<br>
@@ -232,8 +235,10 @@ This AdvancedImage component will be used to show the uploaded image. It’ll us
 }
 ```
 
-Good job, we are now complete and have a React app that we can run!<br>
+**Good job, we are now complete and have a React app that we can run!**<br>
 
+
+## Running the Application
 Run the application with “npm run start”.<br>
 ![Upload Button](/public/cloudinary-app-imgs/cloudinary_app7.png)
 
